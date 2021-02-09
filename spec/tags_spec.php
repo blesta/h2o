@@ -76,4 +76,3 @@ class Describe_with_tag extends SimpleSpec {
 	
 }
 
-?>

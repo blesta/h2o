@@ -32,4 +32,3 @@ class Describe_variable_node extends SimpleSpec {
         expects($result)->should_be('Taylor Luk');
     }
 }
-?>

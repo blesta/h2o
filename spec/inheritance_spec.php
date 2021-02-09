@@ -85,4 +85,4 @@ class Describe_h2o_block_variable extends SimpleSpec {
         );
     }
 }
-?>
+
