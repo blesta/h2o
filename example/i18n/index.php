@@ -43,4 +43,3 @@ echo $template->render(array(
 ));
 echo "in ".(microtime(true) - $time_start)." seconds\n<br/>";
 
-?>

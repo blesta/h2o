@@ -9,4 +9,3 @@ class Site_Tag extends Tag {
 
 h2o::addTag('site');
 
-?>

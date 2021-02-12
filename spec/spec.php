@@ -272,7 +272,7 @@ class SpecMatcher {
         } elseif (is_array($subject)) {
             return $this->be_true(in_array($target, $subject), $message);
         } elseif (is_string($subject)) {
-            return $this->be_true(strpos($target, $subject) !== false, $message);
+            return $this->be_true(str_contains($target, $subject), $message);
         }
     }
     
@@ -321,4 +321,3 @@ class SpecMatcher {
 }
 
 
-?>

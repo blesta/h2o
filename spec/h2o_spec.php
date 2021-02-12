@@ -99,4 +99,3 @@ function w($str) {
     return array_map('trim', explode(',', $str));
 }
 
-?>

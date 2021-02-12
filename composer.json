@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "php": ">=5.1.0"
+        "php": ">=7.1",
+        "symfony/polyfill-php80": "~1.0"
     },
     "autoload": {
         "classmap": ["h2o.php"]

@@ -102,4 +102,3 @@ class Describe_hash_loader extends SimpleSpec {
         expects($this->h2o->render())->should_match('/page menu/');
     }
 }
-?>

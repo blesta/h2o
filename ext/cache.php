@@ -1,16 +1,18 @@
 <?php
 
-class Cache_Tag extends H2o_Node {
+class Cache_Tag extends H2o_Node
+{
     private $cache, $ttl, $uid;
     var $syntax = '/\d+/';
 
-    function __construct($argstring, $parser, $pos = 0) {
+    function __construct($argstring, $parser, $pos = 0)
+    {
         if (!empty($argstring) && !preg_match($this->syntax, $argstring)) {
             throw TemplateSyntaxError('Please specify time to live value for this cache block');
         }
 
         $this->body = $parser->parse('endcache');
-        $this->uid = md5($parser->filename.$pos);
+        $this->uid = md5($parser->filename . $pos);
         $this->ttl = (int) $argstring;
 
         $options = $parser->options;
@@ -25,7 +27,8 @@ class Cache_Tag extends H2o_Node {
         $this->cache = h2o_cache($options);
     }
 
-    function render($context, $stream) {
+    function render($context, $stream)
+    {
         if ($output = $this->cache->read($this->uid)) {
             $stream->write($output);
             return;
@@ -42,4 +45,3 @@ class Cache_Tag extends H2o_Node {
 }
 
 h2o::addTag('cache');
-?>

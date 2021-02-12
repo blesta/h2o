@@ -2,7 +2,7 @@
 require 'spec_helper.php';
 
 class AllTests extends TestSuite {
-    function AllTests() {
+    function __construct() {
         $this->TestSuite('All tests');
         
         $tests = array_merge(
@@ -16,4 +16,3 @@ class AllTests extends TestSuite {
         }
     }
 }
-?>
