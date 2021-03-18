@@ -147,7 +147,7 @@ class For_Tag extends H2o_Node
         if ($this->limit)
             $iteratable = array_slice($iteratable, 0, $this->limit);
 
-        $length = count($iteratable);
+        $length = count($iteratable ? $iteratable : []);
 
         if ($length) {
             $parent = $context['loop'];
