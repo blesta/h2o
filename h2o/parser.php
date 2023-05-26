@@ -271,7 +271,7 @@ class ArgumentLexer
     # String scanner
     function scan($regexp)
     {
-        if (preg_match($regexp . 'A', $this->source, $match, null, $this->pos)) {
+        if (preg_match($regexp . 'A', $this->source, $match, 0, $this->pos)) {
             $this->match = $match[0];
             $this->pos += strlen($this->match);
             return true;

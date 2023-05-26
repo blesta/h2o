@@ -29,7 +29,8 @@ class NodeList extends H2o_Node implements IteratorAggregate
         $this->list = $initial;
         $this->position = $position;
     }
-
+    
+    #[\ReturnTypeWillChange]
     function render($context, $stream)
     {
         foreach ($this->list as $node) {
@@ -37,21 +38,25 @@ class NodeList extends H2o_Node implements IteratorAggregate
         }
     }
 
+    #[\ReturnTypeWillChange]
     function append($node)
     {
         array_push($this->list, $node);
     }
 
+    #[\ReturnTypeWillChange]
     function extend($nodes)
     {
         array_merge($this->list, $nodes);
     }
 
+    #[\ReturnTypeWillChange]
     function getLength()
     {
         return count($this->list);
     }
 
+    #[\ReturnTypeWillChange]
     function getIterator()
     {
         return new ArrayIterator($this->list);

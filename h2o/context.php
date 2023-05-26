@@ -28,7 +28,8 @@ class H2o_Context implements ArrayAccess
 
         $this->options = $options;
     }
-
+    
+    #[\ReturnTypeWillChange]
     function push($layer = [])
     {
         return array_unshift($this->scopes, $layer);
@@ -37,6 +38,7 @@ class H2o_Context implements ArrayAccess
     /**
      * pop the most recent layer
      */
+    #[\ReturnTypeWillChange]
     function pop()
     {
         if (!isset($this->scopes[1]))
@@ -44,6 +46,7 @@ class H2o_Context implements ArrayAccess
         return array_shift($this->scopes);
     }
 
+    #[\ReturnTypeWillChange]
     function offsetExists($offset)
     {
         foreach ($this->scopes as $layer) {
@@ -52,6 +55,7 @@ class H2o_Context implements ArrayAccess
         return false;
     }
 
+    #[\ReturnTypeWillChange]
     function offsetGet($key)
     {
         foreach ($this->scopes as $layer) {
@@ -61,6 +65,7 @@ class H2o_Context implements ArrayAccess
         return;
     }
 
+    #[\ReturnTypeWillChange]
     function offsetSet($key, $value)
     {
         if (strpos($key, '.') > -1)
@@ -68,6 +73,7 @@ class H2o_Context implements ArrayAccess
         return $this->scopes[0][$key] = $value;
     }
 
+    #[\ReturnTypeWillChange]
     function offsetUnset($key)
     {
         foreach ($this->scopes as $layer) {
@@ -75,21 +81,25 @@ class H2o_Context implements ArrayAccess
         }
     }
 
+    #[\ReturnTypeWillChange]
     function extend($context)
     {
         $this->scopes[0] = array_merge($this->scopes[0], $context);
     }
 
+    #[\ReturnTypeWillChange]
     function set($key, $value)
     {
         return $this->offsetSet($key, $value);
     }
 
+    #[\ReturnTypeWillChange]
     function get($key)
     {
         return $this->offsetGet($key);
     }
 
+    #[\ReturnTypeWillChange]
     function isDefined($key)
     {
         return $this->offsetExists($key);
@@ -104,6 +114,7 @@ class H2o_Context implements ArrayAccess
      * @param $var variable name or array(0 => variable name, 'filters' => filters array)
      * @return unknown_type
      */
+    #[\ReturnTypeWillChange]
     function resolve($var)
     {
 
@@ -142,6 +153,7 @@ class H2o_Context implements ArrayAccess
         return $result;
     }
 
+    #[\ReturnTypeWillChange]
     function getVariable($name)
     {
         # Local variables. this gives as a bit of performance improvement
@@ -183,6 +195,7 @@ class H2o_Context implements ArrayAccess
         return $object;
     }
 
+    #[\ReturnTypeWillChange]
     function applyFilters($object, $filters)
     {
 
@@ -209,6 +222,7 @@ class H2o_Context implements ArrayAccess
         return $object;
     }
 
+    #[\ReturnTypeWillChange]
     function escape($value, $var)
     {
 
@@ -232,6 +246,7 @@ class H2o_Context implements ArrayAccess
         return $value;
     }
 
+    #[\ReturnTypeWillChange]
     function externalLookup($name)
     {
         if (!empty(self::$lookupTable)) {
