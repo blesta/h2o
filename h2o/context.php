@@ -240,7 +240,7 @@ class H2o_Context implements ArrayAccess
         $should_escape = $this->autoescape || isset($escaped) && $escaped;
 
         if (($should_escape && !$safe)) {
-            $value = htmlspecialchars($value);
+            $value = htmlspecialchars($value ?? '');
         }
 
         return $value;
