@@ -2,6 +2,9 @@
 
 class H2o_Lexer
 {
+    public $pattern;
+    public $options;
+
     function __construct($options = [])
     {
         $this->options = $options;
@@ -50,6 +53,10 @@ class H2o_Parser
     var $storage = [];
     var $filename;
     var $runtime;
+    var $tokenstream;
+    var $searching;
+    var $lexer;
+    var $options;
 
     function __construct($source, $filename, $runtime, $options)
     {

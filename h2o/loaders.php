@@ -12,6 +12,7 @@ class H2o_Loader
     public $cached = false;
     protected $cache = false;
     public $searchpath = false;
+    public $path;
 
     function read($filename)
     {
@@ -194,6 +195,7 @@ class H2o_File_Cache
 {
     var $ttl = 3600;
     var $prefix = 'h2o_';
+    var $path;
 
     function __construct($options = [])
     {
