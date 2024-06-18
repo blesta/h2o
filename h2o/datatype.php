@@ -103,8 +103,14 @@ class Evaluator
 /**
  * $type of token, Block | Variable
  */
+#[\AllowDynamicProperties]
 class H2o_Token
 {
+    public $position;
+    public $result;
+    public $content;
+    public $type;
+
     function __construct($type, $content, $position)
     {
         $this->type = $type;

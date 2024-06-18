@@ -18,6 +18,7 @@ require H2O_ROOT . 'h2o/context.php';
  *
  *  $h2o = new H2O('template.html', array("loader"=>'hash'));
  */
+#[\AllowDynamicProperties]
 class H2o
 {
     var $searchpath;
@@ -27,6 +28,10 @@ class H2o
     static $tags = [];
     static $filters = [];
     static $extensions = [];
+
+    public $stream;
+    public $nodelist;
+    public $options;
 
     function getOptions($options = [])
     {
