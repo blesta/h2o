@@ -55,6 +55,7 @@ class H2o_Parser
     var $runtime;
     var $tokenstream;
     var $searching;
+    var $token;
     var $lexer;
     var $options;
 

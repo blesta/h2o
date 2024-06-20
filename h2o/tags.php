@@ -66,6 +66,7 @@ class If_Tag extends H2o_Node
     private $body;
     private $else;
     private $negate;
+    private $args;
 
     function __construct($argstring, $parser, $position = 0)
     {
